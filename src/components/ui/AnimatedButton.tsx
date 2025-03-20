@@ -65,7 +65,7 @@ const AnimatedButton = ({
         stiffness: 400,
         damping: 10,
         repeat: Infinity,
-        repeatType: "reverse",
+        repeatType: "reverse" as const,
         duration: 0.6,
         repeatDelay: 0.2
       }
