@@ -3,15 +3,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface AnimatedButtonProps {
   to: string;
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'gradient';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   icon?: boolean;
   isExternal?: boolean;
+  delay?: number;
 }
 
 const AnimatedButton = ({
@@ -22,13 +24,15 @@ const AnimatedButton = ({
   className = '',
   icon = true,
   isExternal = false,
+  delay = 0,
 }: AnimatedButtonProps) => {
   const baseClasses = "relative font-medium inline-flex items-center justify-center rounded-full transition-all overflow-hidden";
   
   const variantClasses = {
     primary: "bg-opority-blue text-white shadow-button hover:shadow-lg hover:bg-opority-blue-light transform hover:translate-y-[-1px]",
     secondary: "bg-white text-opority-navy border border-gray-200 hover:border-opority-blue hover:text-opority-blue",
-    outline: "bg-transparent text-opority-blue border border-opority-blue hover:bg-opority-blue/5"
+    outline: "bg-transparent text-opority-blue border border-opority-blue hover:bg-opority-blue/5",
+    gradient: "bg-gradient-to-r from-opority-blue to-opority-blue-light text-white shadow-button hover:shadow-lg transform hover:translate-y-[-1px]"
   };
   
   const sizeClasses = {
@@ -41,7 +45,19 @@ const AnimatedButton = ({
     <>
       <span>{children}</span>
       {icon && (
-        <ArrowRight size={size === 'sm' ? 16 : size === 'md' ? 18 : 20} className="transition-transform duration-300 group-hover:translate-x-1" />
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: [0, 5, 0] }}
+          transition={{ 
+            duration: 1.5, 
+            repeat: Infinity, 
+            repeatType: "loop", 
+            ease: "easeInOut",
+            repeatDelay: 1
+          }}
+        >
+          <ArrowRight size={size === 'sm' ? 16 : size === 'md' ? 18 : 20} />
+        </motion.div>
       )}
     </>
   );
@@ -54,18 +70,34 @@ const AnimatedButton = ({
     className
   );
 
+  const motionProps = {
+    initial: { opacity: 0, y: 10 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.4, delay: delay * 0.1 },
+    whileHover: { scale: 1.03 },
+    whileTap: { scale: 0.98 }
+  };
+
   if (isExternal) {
     return (
-      <a href={to} target="_blank" rel="noopener noreferrer" className={allClasses}>
+      <motion.a 
+        href={to} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className={allClasses}
+        {...motionProps}
+      >
         {buttonContent}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <Link to={to} className={allClasses}>
-      {buttonContent}
-    </Link>
+    <motion.div {...motionProps}>
+      <Link to={to} className={allClasses}>
+        {buttonContent}
+      </Link>
+    </motion.div>
   );
 };
 

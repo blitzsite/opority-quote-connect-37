@@ -56,12 +56,36 @@ const Team = () => {
     document.title = 'Our Team | Opority';
   }, []);
 
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      }
+    }
+  };
+
+  const itemVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
     <>
       <Navbar />
       <main>
         {/* Page Header */}
-        <section className="pt-32 pb-16 bg-gradient-to-b from-white to-gray-50">
+        <motion.section 
+          className="pt-32 pb-16 bg-gradient-to-b from-white to-gray-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="container-custom">
             <motion.div 
               className="text-center max-w-3xl mx-auto"
@@ -69,40 +93,68 @@ const Team = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-block px-4 py-1.5 bg-opority-blue/10 text-opority-blue rounded-full text-sm font-medium mb-6">
+              <motion.div 
+                className="inline-block px-4 py-1.5 bg-opority-blue/10 text-opority-blue rounded-full text-sm font-medium mb-6"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.4 }}
+              >
                 Our Team
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-opority-navy mb-6">
+              </motion.div>
+              <motion.h1 
+                className="text-4xl md:text-5xl font-bold text-opority-navy mb-6"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
                 Meet the Experts Behind Opority
-              </h1>
-              <p className="text-lg text-gray-600 mb-8">
+              </motion.h1>
+              <motion.p 
+                className="text-lg text-gray-600 mb-8"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
                 Our dedicated team of professionals is committed to delivering exceptional results for your home improvement business.
-              </p>
+              </motion.p>
             </motion.div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Team Grid */}
         <section className="py-20 bg-white">
           <div className="container-custom">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <motion.div 
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+              variants={staggerChildren}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
               {teamMembers.map((member, index) => (
-                <TeamMember
-                  key={member.id}
-                  name={member.name}
-                  role={member.role}
-                  imageUrl={member.imageUrl}
-                  delay={index}
-                />
+                <motion.div key={member.id} variants={itemVariant}>
+                  <TeamMember
+                    name={member.name}
+                    role={member.role}
+                    imageUrl={member.imageUrl}
+                    delay={index}
+                  />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Team Values */}
         <section className="py-20 bg-gray-50">
           <div className="container-custom">
-            <div className="text-center max-w-3xl mx-auto mb-16">
+            <motion.div 
+              className="text-center max-w-3xl mx-auto mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
               <div className="inline-block px-4 py-1.5 bg-opority-blue/10 text-opority-blue rounded-full text-sm font-medium mb-6">
                 Our Values
               </div>
@@ -112,9 +164,15 @@ const Team = () => {
               <p className="text-lg text-gray-600">
                 At Opority, our core values shape everything we do and how we serve our clients.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={staggerChildren}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
               {[
                 {
                   title: "Client Success",
@@ -143,17 +201,15 @@ const Team = () => {
               ].map((value, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  className="bg-white p-8 rounded-xl shadow-card hover:shadow-lg transition-all duration-300"
+                  variants={itemVariant}
+                  className="bg-white p-8 rounded-xl shadow-card hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]"
+                  whileHover={{ scale: 1.02 }}
                 >
                   <h3 className="text-xl font-semibold text-opority-navy mb-4">{value.title}</h3>
                   <p className="text-gray-600">{value.description}</p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
