@@ -2,54 +2,57 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
-import { Laptop, Facebook, Video, Edit } from 'lucide-react';
+import { ArrowRight, Laptop, Facebook, Video, Edit, Settings, LineChart, Megaphone } from 'lucide-react';
+import AnimatedButton from '@/components/ui/AnimatedButton';
 
 const features = [
   {
     title: 'Website Development',
     description: 'Custom website design and development to showcase your home improvement services and convert visitors into leads.',
     icon: Laptop,
-    color: 'bg-blue-500'
+    color: 'bg-blue-500',
+    link: '/services#websites'
   },
   {
     title: 'Facebook Ads',
     description: 'Targeted Facebook advertising campaigns that reach homeowners actively looking for your specific services.',
     icon: Facebook,
-    color: 'bg-indigo-500'
+    color: 'bg-indigo-500',
+    link: '/services#facebook'
   },
   {
     title: 'Video Content',
     description: 'Engaging video content that showcases your work, builds trust, and increases conversion rates.',
     icon: Video,
-    color: 'bg-purple-500'
+    color: 'bg-violet-500',
+    link: '/services#video'
   },
   {
-    title: 'Video Editing',
-    description: 'Professional video editing services to transform your raw footage into polished marketing assets.',
-    icon: Edit,
-    color: 'bg-pink-500'
+    title: 'Marketing Strategy',
+    description: 'Comprehensive digital marketing strategy tailored to your home improvement business goals.',
+    icon: Settings,
+    color: 'bg-emerald-500',
+    link: '/services#strategy'
+  },
+  {
+    title: 'Performance Tracking',
+    description: 'Advanced analytics and reporting to measure the effectiveness of your marketing campaigns.',
+    icon: LineChart,
+    color: 'bg-amber-500',
+    link: '/services#analytics'
+  },
+  {
+    title: 'Brand Development',
+    description: 'Professional branding services to establish your home improvement business as a trusted choice.',
+    icon: Megaphone,
+    color: 'bg-pink-500',
+    link: '/services#branding'
   }
 ];
 
 const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.2 });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
 
   return (
     <section className="py-20 bg-white" id="services" ref={ref}>
@@ -67,44 +70,52 @@ const Services = () => {
         </div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.5 }}
         >
           {features.map((feature, index) => (
             <motion.div 
               key={index}
-              variants={itemVariants}
-              className="bg-white rounded-xl p-6 shadow-card hover:shadow-lg transition-all duration-300 border border-gray-100"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative group"
             >
-              <div className={`${feature.color} w-12 h-12 rounded-lg flex items-center justify-center text-white mb-4`}>
-                <feature.icon size={24} />
+              <div className="flex items-start gap-5">
+                <div className={`${feature.color} w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-md flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                  <feature.icon size={24} />
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-semibold text-opority-navy mb-3 group-hover:text-opority-blue transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {feature.description}
+                  </p>
+                  <Link 
+                    to={feature.link}
+                    className="inline-flex items-center text-opority-blue font-medium hover:underline transition-all gap-1 group-hover:gap-2"
+                  >
+                    Learn more
+                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-opority-navy mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600 mb-4">
-                {feature.description}
-              </p>
-              <Link 
-                to="/services" 
-                className="text-opority-blue font-medium inline-flex items-center hover:text-opority-blue-dark transition-colors"
-              >
-                Learn more
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  className="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
+              
+              {/* Decorative gradient line */}
+              <div className="absolute -bottom-6 left-0 w-0 h-0.5 bg-gradient-to-r from-opority-blue/80 to-transparent group-hover:w-full transition-all duration-500"></div>
             </motion.div>
           ))}
         </motion.div>
+        
+        <div className="mt-16 text-center">
+          <AnimatedButton to="/services" variant="primary" size="lg">
+            Explore All Our Services
+          </AnimatedButton>
+        </div>
       </div>
     </section>
   );

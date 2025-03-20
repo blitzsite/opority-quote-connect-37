@@ -91,10 +91,10 @@ const Hero = () => {
                 transition={{ 
                   duration: 5,
                   repeat: Infinity,
-                  repeatType: "reverse",
+                  repeatType: "reverse" as const,
                   ease: "easeInOut"
                 }}
-                src="https://images.unsplash.com/photo-1556912998-c57cc6b63cd7" 
+                src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb38" 
                 alt="Home renovation and improvement" 
                 className="w-full h-auto rounded-xl" 
               />

@@ -105,18 +105,18 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu - Redesigned */}
+      {/* Redesigned Mobile Menu - Fixed positioning to prevent scrolling issues */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
-            className="fixed inset-0 bg-white z-40 flex flex-col"
+            className="fixed inset-0 bg-white z-40 flex flex-col pt-20"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="flex-1 overflow-auto pt-24 pb-8">
-              <nav className="container-custom flex flex-col space-y-4">
+            <div className="flex-1 overflow-hidden py-6">
+              <nav className="container-custom flex flex-col space-y-2">
                 {links.map((link, index) => (
                   <motion.div
                     key={link.path}
@@ -127,12 +127,12 @@ const Navbar = () => {
                     <Link
                       to={link.path}
                       className={cn(
-                        "block text-xl py-4 border-b border-gray-100 font-medium",
+                        "block py-4 px-4 text-xl font-medium rounded-lg transition-colors",
                         link.isButton 
-                          ? "text-opority-blue"
+                          ? "bg-opority-blue text-white mt-4"
                           : location.pathname === link.path
-                            ? "text-opority-blue"
-                            : "text-opority-navy"
+                            ? "text-opority-blue bg-opority-blue/10"
+                            : "text-opority-navy hover:bg-gray-100"
                       )}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -141,6 +141,10 @@ const Navbar = () => {
                   </motion.div>
                 ))}
               </nav>
+            </div>
+            
+            <div className="container-custom py-6 border-t border-gray-100">
+              <p className="text-sm text-gray-500">© 2023 Opority. All rights reserved.</p>
             </div>
           </motion.div>
         )}
