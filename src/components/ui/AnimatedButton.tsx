@@ -8,12 +8,13 @@ import { motion } from 'framer-motion';
 interface AnimatedButtonProps {
   to: string;
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'gradient';
+  variant?: 'primary' | 'secondary' | 'outline' | 'gradient' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   icon?: boolean;
   isExternal?: boolean;
   delay?: number;
+  onClick?: () => void;
 }
 
 const AnimatedButton = ({
@@ -25,6 +26,7 @@ const AnimatedButton = ({
   icon = true,
   isExternal = false,
   delay = 0,
+  onClick,
 }: AnimatedButtonProps) => {
   const baseClasses = "relative font-medium inline-flex items-center justify-center rounded-full transition-all overflow-hidden";
   
@@ -32,7 +34,8 @@ const AnimatedButton = ({
     primary: "bg-opority-blue text-white shadow-button hover:shadow-lg hover:bg-opority-blue-light transform hover:translate-y-[-1px]",
     secondary: "bg-white text-opority-navy border border-gray-200 hover:border-opority-blue hover:text-opority-blue",
     outline: "bg-transparent text-opority-blue border border-opority-blue hover:bg-opority-blue/5",
-    gradient: "bg-gradient-to-r from-opority-blue to-opority-blue-light text-white shadow-button hover:shadow-lg transform hover:translate-y-[-1px]"
+    gradient: "bg-gradient-to-r from-opority-blue to-opority-blue-light text-white shadow-button hover:shadow-lg transform hover:translate-y-[-1px]",
+    ghost: "bg-transparent text-opority-blue hover:bg-opority-blue/5"
   };
   
   const sizeClasses = {
@@ -41,24 +44,57 @@ const AnimatedButton = ({
     lg: "text-lg px-8 py-4 gap-3"
   };
 
+  const buttonAnimation = {
+    tap: { scale: 0.98 },
+    hover: { 
+      scale: 1.03,
+      transition: { 
+        type: "spring",
+        stiffness: 400,
+        damping: 10
+      }
+    }
+  };
+
+  const iconAnimation = {
+    initial: { x: 0 },
+    hover: { 
+      x: 5,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 10,
+        repeat: Infinity,
+        repeatType: "reverse",
+        duration: 0.6,
+        repeatDelay: 0.2
+      }
+    }
+  };
+
   const buttonContent = (
     <>
-      <span>{children}</span>
+      <span className="relative z-10">{children}</span>
       {icon && (
         <motion.div
-          initial={{ x: 0 }}
-          animate={{ x: [0, 5, 0] }}
-          transition={{ 
-            duration: 1.5, 
-            repeat: Infinity, 
-            repeatType: "loop", 
-            ease: "easeInOut",
-            repeatDelay: 1
-          }}
+          variants={iconAnimation}
+          initial="initial"
+          whileHover="hover"
+          className="relative z-10"
         >
           <ArrowRight size={size === 'sm' ? 16 : size === 'md' ? 18 : 20} />
         </motion.div>
       )}
+
+      {/* Add hover effect overlay */}
+      {variant === 'primary' || variant === 'gradient' ? (
+        <motion.div 
+          className="absolute inset-0 bg-white opacity-0 z-0"
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 0.15 }}
+          transition={{ duration: 0.2 }}
+        />
+      ) : null}
     </>
   );
 
@@ -74,8 +110,9 @@ const AnimatedButton = ({
     initial: { opacity: 0, y: 10 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.4, delay: delay * 0.1 },
-    whileHover: { scale: 1.03 },
-    whileTap: { scale: 0.98 }
+    whileTap: "tap",
+    whileHover: "hover",
+    variants: buttonAnimation
   };
 
   if (isExternal) {
@@ -85,6 +122,7 @@ const AnimatedButton = ({
         target="_blank" 
         rel="noopener noreferrer" 
         className={allClasses}
+        onClick={onClick}
         {...motionProps}
       >
         {buttonContent}
@@ -94,7 +132,11 @@ const AnimatedButton = ({
 
   return (
     <motion.div {...motionProps}>
-      <Link to={to} className={allClasses}>
+      <Link 
+        to={to} 
+        className={allClasses}
+        onClick={onClick}
+      >
         {buttonContent}
       </Link>
     </motion.div>

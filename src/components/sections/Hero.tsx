@@ -2,9 +2,11 @@
 import { useEffect, useRef } from 'react';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   // Parallax effect on scroll
   useEffect(() => {
@@ -26,7 +28,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 pt-32 pb-24 md:pt-36 md:pb-32" ref={containerRef}>
+    <div className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 pt-28 pb-16 md:pt-32 md:pb-24" ref={containerRef}>
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-100 rounded-full opacity-20 parallax blur-3xl" data-speed="-0.5"></div>
@@ -35,7 +37,7 @@ const Hero = () => {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 items-center">
           {/* Hero Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -75,12 +77,12 @@ const Hero = () => {
             </div>
           </motion.div>
           
-          {/* Hero Image */}
+          {/* Hero Image - Updated with new home improvement image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="with-perspective"
+            className="with-perspective mt-8 lg:mt-0"
           >
             <div className="relative rounded-xl overflow-hidden shadow-xl with-perspective">
               <motion.img 
@@ -92,8 +94,8 @@ const Hero = () => {
                   repeatType: "reverse",
                   ease: "easeInOut"
                 }}
-                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
-                alt="Digital marketing dashboard" 
+                src="https://images.unsplash.com/photo-1556912998-c57cc6b63cd7" 
+                alt="Home renovation and improvement" 
                 className="w-full h-auto rounded-xl" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-opority-navy/40 to-transparent rounded-xl"></div>
