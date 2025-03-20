@@ -43,7 +43,7 @@ const Booking = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="inline-block px-4 py-1.5 bg-opority-blue/10 text-opority-blue rounded-full text-sm font-medium mb-6">
-                Let's Talk
+                Let&apos;s Talk
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-opority-navy mb-6">
                 Book Your Free Strategy Call
@@ -79,23 +79,23 @@ const Booking = () => {
                   {[
                     {
                       icon: CheckCircle,
-                      title: 'Business Analysis',
-                      description: 'We'll discuss your current marketing efforts and identify areas for improvement.'
+                      title: "Business Analysis",
+                      description: "We'll discuss your current marketing efforts and identify areas for improvement."
                     },
                     {
                       icon: CheckCircle,
-                      title: 'Custom Strategy Overview',
-                      description: 'Get a high-level view of how our team would approach your specific challenges.'
+                      title: "Custom Strategy Overview",
+                      description: "Get a high-level view of how our team would approach your specific challenges."
                     },
                     {
                       icon: CheckCircle,
-                      title: 'ROI Projection',
-                      description: 'Understand the potential return on investment our services could generate for your business.'
+                      title: "ROI Projection",
+                      description: "Understand the potential return on investment our services could generate for your business."
                     },
                     {
                       icon: CheckCircle,
-                      title: 'Q&A Session',
-                      description: 'Get answers to all your questions about our services and approach.'
+                      title: "Q&A Session",
+                      description: "Get answers to all your questions about our services and approach."
                     }
                   ].map((item, index) => (
                     <motion.div 

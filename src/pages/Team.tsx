@@ -117,28 +117,28 @@ const Team = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: 'Client Success',
-                  description: 'Your success is our success. We're committed to delivering results that help your business grow and thrive.'
+                  title: "Client Success",
+                  description: "Your success is our success. We're committed to delivering results that help your business grow and thrive."
                 },
                 {
-                  title: 'Innovation',
-                  description: 'We stay at the forefront of digital marketing trends and technologies to provide you with cutting-edge solutions.'
+                  title: "Innovation",
+                  description: "We stay at the forefront of digital marketing trends and technologies to provide you with cutting-edge solutions."
                 },
                 {
-                  title: 'Transparency',
-                  description: 'We believe in open communication and complete transparency in everything we do, from pricing to reporting.'
+                  title: "Transparency",
+                  description: "We believe in open communication and complete transparency in everything we do, from pricing to reporting."
                 },
                 {
-                  title: 'Quality',
-                  description: 'We focus on generating high-quality leads that are ready to engage with your business and convert into customers.'
+                  title: "Quality",
+                  description: "We focus on generating high-quality leads that are ready to engage with your business and convert into customers."
                 },
                 {
-                  title: 'Collaboration',
-                  description: 'We work closely with you to understand your business goals and develop strategies that align with your vision.'
+                  title: "Collaboration",
+                  description: "We work closely with you to understand your business goals and develop strategies that align with your vision."
                 },
                 {
-                  title: 'Continuous Improvement',
-                  description: 'We're constantly refining our processes and strategies to deliver better results for your business.'
+                  title: "Continuous Improvement",
+                  description: "We're constantly refining our processes and strategies to deliver better results for your business."
                 }
               ].map((value, index) => (
                 <motion.div
