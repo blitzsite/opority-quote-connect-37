@@ -53,12 +53,12 @@ const MobileMenu = ({ isOpen, onClose, links }: MobileMenuProps) => {
           />
           
           {/* Menu content */}
-          <motion.div
+          <motion.nav
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed top-0 right-0 h-full w-[85%] max-w-md bg-white z-50 shadow-xl flex flex-col"
+            transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+            className="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-white z-50 shadow-xl flex flex-col"
           >
             <div className="flex justify-end p-4">
               <button
@@ -66,25 +66,20 @@ const MobileMenu = ({ isOpen, onClose, links }: MobileMenuProps) => {
                 className="p-2 rounded-full hover:bg-gray-100 transition-colors"
                 aria-label="Close menu"
               >
-                <X size={24} />
+                <X size={24} className="text-opority-navy" />
               </button>
             </div>
             
-            <nav className="flex-grow overflow-auto">
-              <ul className="px-6 py-4 flex flex-col space-y-2">
+            <div className="flex-grow overflow-auto">
+              <ul className="px-6 py-4 flex flex-col space-y-4">
                 {links.map((link, index) => (
-                  <motion.li
-                    key={link.path}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
+                  <li key={link.path}>
                     <Link
                       to={link.path}
                       className={cn(
                         "block py-3 px-4 text-lg font-medium rounded-lg transition-colors",
                         link.isButton 
-                          ? "bg-opority-blue text-white mt-4"
+                          ? "bg-opority-blue text-white"
                           : location.pathname === link.path
                             ? "text-opority-blue bg-opority-blue/10"
                             : "text-opority-navy hover:bg-gray-100"
@@ -93,15 +88,15 @@ const MobileMenu = ({ isOpen, onClose, links }: MobileMenuProps) => {
                     >
                       {link.name}
                     </Link>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
-            </nav>
+            </div>
             
             <div className="p-6 border-t border-gray-100">
               <p className="text-sm text-gray-500">© 2023 Opority. All rights reserved.</p>
             </div>
-          </motion.div>
+          </motion.nav>
         </>
       )}
     </AnimatePresence>
