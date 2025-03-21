@@ -1,14 +1,12 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileMenu from './MobileMenu';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isMobile = useIsMobile();
 
@@ -35,10 +33,6 @@ const Navbar = () => {
     // Scroll to top when route changes
     window.scrollTo(0, 0);
   }, [location.pathname]);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   return (
     <header 
@@ -75,22 +69,11 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button 
-          onClick={toggleMobileMenu}
-          className="flex md:hidden text-opority-navy p-2 rounded-full hover:bg-gray-100 transition-colors z-50"
-          aria-label="Toggle menu"
-        >
-          <Menu size={24} />
-        </button>
+        {/* Mobile Menu (shadcn Sheet component) */}
+        <div className="md:hidden">
+          <MobileMenu links={links} />
+        </div>
       </div>
-
-      {/* Mobile Menu Component */}
-      <MobileMenu
-        isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-        links={links}
-      />
     </header>
   );
 };
