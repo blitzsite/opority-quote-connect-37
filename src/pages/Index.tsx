@@ -9,7 +9,7 @@ import Footer from '@/components/layout/Footer';
 import StatisticsSection from '@/components/sections/StatisticsSection';
 import TestimonialSlider from '@/components/sections/TestimonialSlider';
 import FloatingBanner from '@/components/ui/FloatingBanner';
-import { ArrowRight, BarChart, CheckCircle, Shield, Users, Target, TrendingUp } from 'lucide-react';
+import { Target, TrendingUp, Users } from 'lucide-react';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 
 const Index = () => {
@@ -142,10 +142,10 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Services - This will be updated by updating the Services component file */}
+        {/* Services */}
         <Services />
 
-        {/* Process Section - Changed to step-by-step visualization */}
+        {/* Process Section */}
         <section className="py-20 bg-white">
           <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -238,12 +238,13 @@ const Index = () => {
         <Footer />
       </main>
 
-      {/* Floating Banner */}
+      {/* FloatingBanner with the delay prop */}
       <FloatingBanner 
         message="Limited time offer: Get a free website audit when you book a call!"
         buttonText="Learn More"
         buttonLink="/booking"
         delay={5}
+        isVisible={true}
       />
     </>
   );

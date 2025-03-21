@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import AnimatedButton from './AnimatedButton';
@@ -10,25 +10,36 @@ interface FloatingBannerProps {
   buttonLink: string;
   isVisible?: boolean;
   onDismiss?: () => void;
+  delay?: number; // Add the delay prop to the interface
 }
 
 const FloatingBanner = ({
   message,
   buttonText,
   buttonLink,
-  isVisible = false,
+  isVisible = true, // Changed default to true to show the banner by default
   onDismiss,
+  delay = 0, // Default delay is 0 seconds
 }: FloatingBannerProps) => {
-  const [visible, setVisible] = useState(isVisible);
+  const [visible, setVisible] = useState(false);
+  
+  // Effect to handle the delayed appearance of the banner
+  useEffect(() => {
+    if (isVisible && delay > 0) {
+      const timer = setTimeout(() => {
+        setVisible(true);
+      }, delay * 1000); // Convert seconds to milliseconds
+      
+      return () => clearTimeout(timer);
+    } else {
+      setVisible(isVisible);
+    }
+  }, [isVisible, delay]);
   
   const handleDismiss = () => {
     setVisible(false);
     if (onDismiss) onDismiss();
   };
-
-  if (!visible) {
-    return null;
-  }
 
   return (
     <AnimatePresence>
