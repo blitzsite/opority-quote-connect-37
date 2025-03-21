@@ -16,37 +16,37 @@ const teamMembers = [
   {
     name: 'Ognjen',
     role: 'Facebook Manager',
-    imageUrl: 'public/lovable-uploads/3ca5c8ec-9593-4f72-9e4e-3ee99069918b.png',
+    imageUrl: '/gio_edited.avif',
     id: 'ognjen'
   },
   {
     name: 'Mehadi',
     role: 'Website Designer & Marketer',
-    imageUrl: 'public/lovable-uploads/3ca5c8ec-9593-4f72-9e4e-3ee99069918b.png',
+    imageUrl: '/mehadi.avif',
     id: 'mehadi'
   },
   {
     name: 'Ken',
     role: 'Sales Representative',
-    imageUrl: 'public/lovable-uploads/3ca5c8ec-9593-4f72-9e4e-3ee99069918b.png',
+    imageUrl: '/ken_edited.avif',
     id: 'ken'
   },
   {
     name: 'David',
     role: 'Appointment Setter',
-    imageUrl: 'public/lovable-uploads/3ca5c8ec-9593-4f72-9e4e-3ee99069918b.png',
+    imageUrl: '/David_edited.avif',
     id: 'david'
   },
   {
     name: 'Mike',
     role: 'Appointment Setter',
-    imageUrl: 'public/lovable-uploads/3ca5c8ec-9593-4f72-9e4e-3ee99069918b.png',
+    imageUrl: '/Mike_edited.avif',
     id: 'mike'
   },
   {
     name: 'Farhan',
     role: 'Appointment Setter',
-    imageUrl: 'public/lovable-uploads/3ca5c8ec-9593-4f72-9e4e-3ee99069918b.png',
+    imageUrl: '/farhan.avif',
     id: 'farhan'
   }
 ];
