@@ -10,7 +10,15 @@ import Team from "./pages/Team";
 import Booking from "./pages/Booking";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+// Create a client for React Query
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false, // Optimize by preventing refetches on window focus
+      retry: 1, // Limit retries for failed queries
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

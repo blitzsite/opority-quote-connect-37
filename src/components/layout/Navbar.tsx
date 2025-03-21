@@ -41,12 +41,12 @@ const Navbar = () => {
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('overflow-hidden');
     } else {
-      document.body.style.overflow = '';
+      document.body.classList.remove('overflow-hidden');
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.classList.remove('overflow-hidden');
     };
   }, [isMobileMenuOpen]);
 
@@ -105,24 +105,24 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Redesigned Mobile Menu - Fixed positioning to prevent scrolling issues */}
+      {/* Fixed Mobile Menu - Redesigned for better performance */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
-            className="fixed inset-0 bg-white z-40 flex flex-col pt-20"
-            initial={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 bg-white z-40 pt-20 md:hidden"
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
           >
-            <div className="flex-1 overflow-hidden py-6">
-              <nav className="container-custom flex flex-col space-y-2">
+            <div className="h-full overflow-auto">
+              <nav className="container-custom flex flex-col space-y-4 py-8">
                 {links.map((link, index) => (
                   <motion.div
                     key={link.path}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    transition={{ duration: 0.2, delay: index * 0.05 }}
                   >
                     <Link
                       to={link.path}
@@ -141,10 +141,10 @@ const Navbar = () => {
                   </motion.div>
                 ))}
               </nav>
-            </div>
-            
-            <div className="container-custom py-6 border-t border-gray-100">
-              <p className="text-sm text-gray-500">© 2023 Opority. All rights reserved.</p>
+              
+              <div className="container-custom py-6 border-t border-gray-100 mt-auto">
+                <p className="text-sm text-gray-500">© 2023 Opority. All rights reserved.</p>
+              </div>
             </div>
           </motion.div>
         )}
