@@ -31,11 +31,11 @@ const AnimatedButton = ({
   const baseClasses = "relative font-medium inline-flex items-center justify-center rounded-full transition-all overflow-hidden";
   
   const variantClasses = {
-    primary: "bg-opority-blue text-white shadow-button hover:shadow-lg hover:bg-opority-blue-light transform hover:translate-y-[-1px]",
-    secondary: "bg-white text-opority-navy border border-gray-200 hover:border-opority-blue hover:text-opority-blue",
-    outline: "bg-transparent text-opority-blue border border-opority-blue hover:bg-opority-blue/5",
-    gradient: "bg-gradient-to-r from-opority-blue to-opority-blue-light text-white shadow-button hover:shadow-lg transform hover:translate-y-[-1px]",
-    ghost: "bg-transparent text-opority-blue hover:bg-opority-blue/5"
+    primary: "bg-opority-purple text-white shadow-button hover:shadow-lg hover:bg-opority-purple-light transform hover:translate-y-[-1px]",
+    secondary: "bg-white text-opority-navy border border-gray-200 hover:border-opority-purple hover:text-opority-purple",
+    outline: "bg-transparent text-opority-purple border border-opority-purple hover:bg-opority-purple/5",
+    gradient: "bg-gradient-to-r from-opority-purple to-opority-purple-light text-white shadow-button hover:shadow-lg transform hover:translate-y-[-1px]",
+    ghost: "bg-transparent text-opority-purple hover:bg-opority-purple/5"
   };
   
   const sizeClasses = {

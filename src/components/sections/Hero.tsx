@@ -28,12 +28,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 pt-28 pb-16 md:pt-32 md:pb-24" ref={containerRef}>
+    <div className="relative overflow-hidden bg-opority-dark-bg pt-28 pb-16 md:pt-32 md:pb-24" ref={containerRef}>
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-100 rounded-full opacity-20 parallax blur-3xl" data-speed="-0.5"></div>
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-200 rounded-full opacity-10 parallax blur-3xl" data-speed="0.2"></div>
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-indigo-100 rounded-full opacity-20 parallax blur-3xl" data-speed="-0.3"></div>
+        <div className="absolute top-0 right-0 w-full h-full">
+          <img 
+            src="/lovable-uploads/db99f11a-eb60-41f9-86a1-82ea53525cd5.png" 
+            alt="Background pattern" 
+            className="w-full h-full object-cover opacity-90" 
+          />
+        </div>
       </div>
 
       <div className="container-custom relative z-10">
@@ -45,16 +49,13 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="text-center lg:text-left"
           >
-            <div className="inline-block px-4 py-1.5 bg-opority-blue/10 text-opority-blue rounded-full text-sm font-medium mb-6">
-              Home Improvement Lead Generation
-            </div>
-            
-            <h1 className="text-balance text-4xl sm:text-5xl lg:text-6xl font-bold text-opority-navy leading-tight mb-6">
-              Generate Quote-Ready Home Improvement Leads
+            <h1 className="text-balance text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              We Generate <span className="text-opority-purple">Quote-Ready</span> Home Improvement <span className="text-opority-purple">Leads</span> For You.
             </h1>
             
-            <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
-              We help home improvement businesses grow with high-quality leads through proven digital marketing strategies.
+            <p className="text-lg text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+              No Cold Calling. No Wasted Ad Spend. <br />
+              Just Ready-To-Buy Customers.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -62,45 +63,15 @@ const Hero = () => {
                 to="/booking" 
                 variant="primary" 
                 size="lg"
-                className="animate-button-pulse"
+                className="purple-gradient"
               >
-                Book a Free Call
-              </AnimatedButton>
-              
-              <AnimatedButton 
-                to="/services" 
-                variant="outline"
-                size="lg"
-              >
-                Explore Services
+                Get More Leads
               </AnimatedButton>
             </div>
           </motion.div>
           
-          {/* Hero Image - Updated with new home improvement image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="with-perspective mt-8 lg:mt-0"
-          >
-            <div className="relative rounded-xl overflow-hidden shadow-xl with-perspective">
-              <motion.img 
-                initial={{ y: 20 }}
-                animate={{ y: 0 }}
-                transition={{ 
-                  duration: 5,
-                  repeat: Infinity,
-                  repeatType: "reverse" as const,
-                  ease: "easeInOut"
-                }}
-                src="/hero-img.jpg" 
-                alt="Home renovation and improvement" 
-                className="w-full h-auto rounded-xl" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-opority-navy/40 to-transparent rounded-xl"></div>
-            </div>
-          </motion.div>
+          {/* Right side - empty for this layout */}
+          <div></div>
         </div>
       </div>
     </div>
