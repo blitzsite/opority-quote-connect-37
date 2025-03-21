@@ -128,11 +128,15 @@
   }
   
   .dark-gradient {
-    @apply bg-gradient-to-b from-opority-dark-bg to-opority-navy;
+    @apply bg-gradient-to-b from-opority-dark-bg to-opority-dark-card;
   }
   
   .glass-card {
     @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl;
+  }
+  
+  .dark-card {
+    @apply bg-opority-dark-card border border-opority-dark-border rounded-xl;
   }
 }
 

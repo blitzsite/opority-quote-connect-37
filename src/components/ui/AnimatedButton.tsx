@@ -32,7 +32,7 @@ const AnimatedButton = ({
   
   const variantClasses = {
     primary: "bg-opority-purple text-white shadow-button hover:shadow-lg hover:bg-opority-purple-light transform hover:translate-y-[-1px]",
-    secondary: "bg-white text-opority-navy border border-gray-200 hover:border-opority-purple hover:text-opority-purple",
+    secondary: "bg-opority-dark-card text-white border border-opority-dark-border hover:border-opority-purple hover:text-opority-purple",
     outline: "bg-transparent text-opority-purple border border-opority-purple hover:bg-opority-purple/5",
     gradient: "bg-gradient-to-r from-opority-purple to-opority-purple-light text-white shadow-button hover:shadow-lg transform hover:translate-y-[-1px]",
     ghost: "bg-transparent text-opority-purple hover:bg-opority-purple/5"

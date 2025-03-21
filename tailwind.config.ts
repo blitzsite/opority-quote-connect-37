@@ -64,15 +64,15 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				opority: {
-					blue: '#a688ff', // Updated to match purple from reference
-					'blue-light': '#bca4ff', // Lighter purple
-					'blue-dark': '#8667e6', // Darker purple
-					'navy': '#1A1F2C', // Dark background
-					'light': '#F5F7FA',
-					'gray': '#94A3B8',
-					'purple': '#9b87f5', // New purple color
+					'purple': '#9b87f5', // Primary purple color
 					'purple-light': '#bca4ff', // Light purple
-					'dark-bg': '#0c0c14', // Dark background from reference
+					'purple-dark': '#8667e6', // Darker purple
+					'dark-bg': '#0c0c14', // Dark background (main background color)
+					'dark-card': '#13131f', // Slightly lighter dark for cards
+					'dark-border': '#222230', // Border color for dark theme
+					'light-text': '#F5F7FA', // Light text color
+					'gray-text': '#94A3B8', // Gray text color
+					'muted-text': '#64646f', // Muted text color
 				}
 			},
 			borderRadius: {
@@ -120,11 +120,11 @@ export default {
 				'button-pulse': {
 					'0%, 100%': {
 						transform: 'scale(1)',
-						boxShadow: '0 0 0 0 rgba(59, 90, 245, 0.4)'
+						boxShadow: '0 0 0 0 rgba(155, 135, 245, 0.4)'
 					},
 					'50%': {
 						transform: 'scale(1.03)',
-						boxShadow: '0 0 0 10px rgba(59, 90, 245, 0)'
+						boxShadow: '0 0 0 10px rgba(155, 135, 245, 0)'
 					}
 				},
 				'float': {
@@ -149,9 +149,9 @@ export default {
 				'inter': ['Inter', 'system-ui', 'sans-serif']
 			},
 			boxShadow: {
-				'subtle': '0 4px 20px rgba(0, 0, 0, 0.05)',
-				'card': '0 10px 30px -5px rgba(0, 0, 0, 0.05)',
-				'button': '0 5px 15px rgba(149, 128, 247, 0.25)' // Updated to match purple theme
+				'subtle': '0 4px 20px rgba(0, 0, 0, 0.15)',
+				'card': '0 10px 30px -5px rgba(0, 0, 0, 0.15)',
+				'button': '0 5px 15px rgba(155, 135, 245, 0.25)'
 			},
 			backdropBlur: {
 				'crisp': '5px'

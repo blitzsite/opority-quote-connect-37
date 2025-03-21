@@ -29,7 +29,7 @@ const CtaSection = ({
   return (
     <section 
       ref={ref}
-      className={`py-16 md:py-24 bg-opority-dark-bg text-white`}
+      className="py-16 md:py-24 bg-opority-dark-bg text-white"
     >
       <motion.div 
         className="container-custom"
@@ -37,11 +37,11 @@ const CtaSection = ({
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
-        <div className="bg-gradient-to-r from-opority-purple/20 to-opority-purple-light/20 rounded-2xl overflow-hidden shadow-lg">
+        <div className="bg-gradient-to-r from-opority-purple/10 to-opority-purple-light/10 rounded-2xl overflow-hidden border border-opority-dark-border shadow-lg">
           <div className="relative p-8 md:p-12 lg:p-16">
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-opority-purple/10 rounded-full -mr-32 -mt-32"></div>
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-opority-purple/10 rounded-full -ml-40 -mb-40"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-opority-purple/5 rounded-full -mr-32 -mt-32"></div>
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-opority-purple/5 rounded-full -ml-40 -mb-40"></div>
 
             <div className="relative z-10 max-w-3xl mx-auto text-center">
               <motion.h2 

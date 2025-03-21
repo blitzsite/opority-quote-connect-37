@@ -35,7 +35,7 @@ const Hero = () => {
           <img 
             src="/lovable-uploads/db99f11a-eb60-41f9-86a1-82ea53525cd5.png" 
             alt="Background pattern" 
-            className="w-full h-full object-cover opacity-90" 
+            className="w-full h-full object-cover opacity-5" 
           />
         </div>
       </div>
@@ -70,8 +70,29 @@ const Hero = () => {
             </div>
           </motion.div>
           
-          {/* Right side - empty for this layout */}
-          <div></div>
+          {/* Right side - illustration */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="hidden lg:block"
+          >
+            <div className="relative">
+              <div className="w-full h-full absolute -right-10 -top-10 rounded-full bg-opority-purple/5 filter blur-[60px]"></div>
+              <div className="w-full h-full absolute -left-10 -bottom-10 rounded-full bg-opority-purple/5 filter blur-[60px]"></div>
+              <img 
+                src="/hero-img.jpg" 
+                alt="Home improvement professional" 
+                className="rounded-2xl object-cover w-full border border-opority-purple/10 shadow-lg" 
+              />
+              <div className="absolute -bottom-4 -right-4 bg-opority-dark-card px-6 py-4 rounded-lg border border-opority-dark-border shadow-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <p className="text-white font-medium">Lead Generation Active</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>
