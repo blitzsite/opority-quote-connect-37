@@ -94,7 +94,7 @@ const Hero = () => {
                   repeatType: "reverse" as const,
                   ease: "easeInOut"
                 }}
-                src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb38" 
+                src="/hero-img.jpg" 
                 alt="Home renovation and improvement" 
                 className="w-full h-auto rounded-xl" 
               />
