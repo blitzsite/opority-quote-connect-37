@@ -8,7 +8,6 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import StatisticsSection from '@/components/sections/StatisticsSection';
 import TestimonialSlider from '@/components/sections/TestimonialSlider';
-import FloatingBanner from '@/components/ui/FloatingBanner';
 import { Target, TrendingUp, Users } from 'lucide-react';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 
@@ -237,15 +236,6 @@ const Index = () => {
         
         <Footer />
       </main>
-
-      {/* FloatingBanner with the delay prop */}
-      <FloatingBanner 
-        message="Limited time offer: Get a free website audit when you book a call!"
-        buttonText="Learn More"
-        buttonLink="/booking"
-        delay={5}
-        isVisible={true}
-      />
     </>
   );
 };

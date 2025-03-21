@@ -1,10 +1,11 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
+import MobileMenu from './MobileMenu';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,23 +33,13 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    // Close mobile menu when route changes
-    setIsMobileMenuOpen(false);
     // Scroll to top when route changes
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.classList.add('overflow-hidden');
-    } else {
-      document.body.classList.remove('overflow-hidden');
-    }
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
-  }, [isMobileMenuOpen]);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <header 
@@ -87,68 +78,20 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex md:hidden text-opority-navy p-1 z-50"
-          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          onClick={toggleMobileMenu}
+          className="flex md:hidden text-opority-navy p-2 rounded-full hover:bg-gray-100 transition-colors z-50"
+          aria-label="Toggle menu"
         >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={isMobileMenuOpen ? 'close' : 'open'}
-              initial={{ opacity: 0, rotate: isMobileMenuOpen ? -90 : 90 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              exit={{ opacity: 0, rotate: isMobileMenuOpen ? 90 : -90 }}
-              transition={{ duration: 0.2 }}
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.div>
-          </AnimatePresence>
+          <Menu size={24} />
         </button>
       </div>
 
-      {/* Fixed Mobile Menu - Redesigned for better performance */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            className="fixed inset-0 bg-white z-40 pt-20 md:hidden"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div className="h-full overflow-auto">
-              <nav className="container-custom flex flex-col space-y-4 py-8">
-                {links.map((link, index) => (
-                  <motion.div
-                    key={link.path}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.2, delay: index * 0.05 }}
-                  >
-                    <Link
-                      to={link.path}
-                      className={cn(
-                        "block py-4 px-4 text-xl font-medium rounded-lg transition-colors",
-                        link.isButton 
-                          ? "bg-opority-blue text-white mt-4"
-                          : location.pathname === link.path
-                            ? "text-opority-blue bg-opority-blue/10"
-                            : "text-opority-navy hover:bg-gray-100"
-                      )}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </nav>
-              
-              <div className="container-custom py-6 border-t border-gray-100 mt-auto">
-                <p className="text-sm text-gray-500">© 2023 Opority. All rights reserved.</p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* New Mobile Menu Component */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        links={links}
+      />
     </header>
   );
 };
