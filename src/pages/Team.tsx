@@ -10,7 +10,7 @@ const teamMembers = [
   {
     name: 'Arnold',
     role: 'Founder & CEO',
-    imageUrl: 'public/lovable-uploads/3ca5c8ec-9593-4f72-9e4e-3ee99069918b.png',
+    imageUrl: '/Arnold_edited.avif',
     id: 'arnold'
   },
   {
