@@ -29,7 +29,6 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <AnimatedLogo />
-          <span className="ml-2 font-bold text-2xl tracking-tight">Opority</span>
         </div>
 
         {/* Desktop Navigation */}

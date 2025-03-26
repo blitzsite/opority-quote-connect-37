@@ -49,18 +49,17 @@ const Index = () => {
         <HeroSection />
         
         {/* Trusted By Section */}
-        <section className="py-16 reveal-section">
+        <section className="py-28 reveal-section">
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-2xl font-bold mb-8">Trusted By Many</h2>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-              {/* Placeholder company logos with glass morphism effect */}
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="glass-morphism h-24 rounded-xl flex items-center justify-center px-6 py-4 border border-indigo-500/10">
-                  <div className="text-white/40 font-semibold">Partner {i}</div>
-                </div>
-              ))}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center justify-items-center">
+              {/* Partner logos */}
+              <img src="/lovable-uploads/0529b956-25cd-4742-a256-a33ab880ba30.png" alt="Partner 1" className="h-16 md:h-20 object-contain" />
+              <img src="/lovable-uploads/3e2b05d0-f0e5-4486-8d12-66179f16affc.png" alt="Partner 2" className="h-16 md:h-20 object-contain" />
+              <img src="/lovable-uploads/e5fd37c3-e404-4693-9d8f-48fd3a44f6fa.png" alt="Partner 3" className="h-16 md:h-24 object-contain" />
+              <img src="/lovable-uploads/208b81a5-7927-4f58-a61d-e2fcb953c972.png" alt="Partner 4" className="h-16 md:h-20 object-contain" />
             </div>
           </div>
         </section>
