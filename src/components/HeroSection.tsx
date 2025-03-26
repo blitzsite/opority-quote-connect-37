@@ -12,7 +12,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+    <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -55,7 +55,7 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div 
-            className={`flex flex-col sm:flex-row items-center justify-center gap-4 mb-16
+            className={`flex flex-col sm:flex-row items-center justify-center gap-4
               transform transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: '800ms' }}
           >
@@ -71,32 +71,6 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 h-4 w-4 opacity-70 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-          </div>
-
-          {/* Preview Image */}
-          <div 
-            className={`relative w-full max-w-5xl mx-auto perspective
-              transform transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            style={{ transitionDelay: '1000ms' }}
-          >
-            <div className="glass-morphism rounded-xl overflow-hidden shadow-2xl border border-indigo-500/10 transform hover:translate-y-[-5px] transition-transform duration-500">
-              <div className="h-10 bg-dark-200 flex items-center px-4 space-x-2 border-b border-white/5">
-                <div className="w-3 h-3 rounded-full bg-white/20"></div>
-                <div className="w-3 h-3 rounded-full bg-white/20"></div>
-                <div className="w-3 h-3 rounded-full bg-white/20"></div>
-                <div className="h-5 w-64 ml-4 rounded-md bg-white/10"></div>
-              </div>
-              <div className="bg-dark-300 aspect-video w-full flex items-center justify-center">
-                <div className="flex flex-col items-center">
-                  <div className="h-24 w-24 bg-indigo-500/20 rounded-full flex items-center justify-center mb-4">
-                    <div className="h-16 w-16 bg-indigo-500/30 rounded-full flex items-center justify-center">
-                      <div className="text-4xl font-bold text-indigo-400">5+</div>
-                    </div>
-                  </div>
-                  <div className="text-white text-xl font-semibold">Guaranteed Leads in 30 Days</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

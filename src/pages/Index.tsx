@@ -55,10 +55,14 @@ const Index = () => {
               <h2 className="text-2xl font-bold mb-8">Trusted By Many</h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-              {/* Placeholder company logos with glass morphism effect */}
+              {/* Placeholder company logos */}
               {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="glass-morphism h-24 rounded-xl flex items-center justify-center px-6 py-4 border border-indigo-500/10">
-                  <div className="text-white/40 font-semibold">Partner {i}</div>
+                <div key={i} className="flex items-center justify-center px-6 py-4">
+                  <img 
+                    src={`https://placehold.co/200x80/indigo/white?text=Partner+${i}`} 
+                    alt={`Partner ${i}`} 
+                    className="max-h-16 w-auto" 
+                  />
                 </div>
               ))}
             </div>

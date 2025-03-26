@@ -7,12 +7,9 @@ import {
   Globe, 
   TrendingUp, 
   Video, 
-  Phone, 
   BadgeCheck, 
-  Zap, 
-  BarChart4,
-  Clock 
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -46,17 +43,6 @@ const services = [
       "Service explanations",
       "Before & after reveals",
       "Social media clips"
-    ]
-  },
-  {
-    icon: <Phone className="h-8 w-8 text-brand-accent" />,
-    title: "Lead Qualification",
-    description: "We screen all leads to ensure you're only spending time on serious, ready-to-quote prospects.",
-    features: [
-      "Initial contact handling",
-      "Budget verification",
-      "Project timeline confirmation",
-      "Service matching"
     ]
   }
 ];
@@ -100,8 +86,14 @@ const ServicesPage = () => {
       <main>
         {/* Hero Section */}
         <section className="pt-32 pb-20 relative overflow-hidden">
-          {/* Background Elements */}
+          {/* Background Image */}
           <div className="absolute inset-0 overflow-hidden">
+            <img 
+              src="/lovable-uploads/e667d294-b1ba-4f93-988d-a261d29cf42e.png" 
+              alt="Background" 
+              className="w-full h-full object-cover" 
+            />
+            <div className="absolute inset-0 bg-black/60"></div>
             <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-brand-purple/10 blur-3xl"></div>
             <div className="absolute bottom-0 -left-32 w-72 h-72 rounded-full bg-brand-blue/10 blur-3xl"></div>
           </div>
@@ -123,7 +115,7 @@ const ServicesPage = () => {
         {/* Services Section */}
         <section className="py-16 relative reveal-section">
           <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {services.map((service, index) => (
                 <div key={index} className="glass-morphism rounded-2xl p-8 transition-transform hover:translate-y-[-5px] duration-300">
                   <div className="h-16 w-16 rounded-xl neo-morphism flex items-center justify-center mb-6">
@@ -145,81 +137,6 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section className="py-16 reveal-section">
-          <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">How We Generate Quote-Ready Leads</h2>
-              <p className="text-white/70 max-w-2xl mx-auto">
-                Our proven process attracts the right homeowners and converts them into qualified leads for your business.
-              </p>
-            </div>
-
-            <div className="relative">
-              {/* Timeline connector */}
-              <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-brand-accent/30 transform -translate-x-1/2 hidden md:block"></div>
-              
-              <div className="space-y-12 relative">
-                {/* Step 1 */}
-                <div className="flex flex-col md:flex-row items-center">
-                  <div className="md:w-1/2 md:pr-12 text-right mb-6 md:mb-0">
-                    <h3 className="text-xl font-semibold mb-2">Targeted Marketing Campaigns</h3>
-                    <p className="text-white/70">
-                      We run highly targeted ads and content campaigns to attract homeowners actively looking for your services.
-                    </p>
-                  </div>
-                  <div className="h-12 w-12 rounded-full bg-brand-accent flex items-center justify-center z-10 mb-6 md:mb-0">
-                    <Zap className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="md:w-1/2 md:pl-12"></div>
-                </div>
-                
-                {/* Step 2 */}
-                <div className="flex flex-col md:flex-row items-center">
-                  <div className="md:w-1/2 md:pr-12"></div>
-                  <div className="h-12 w-12 rounded-full bg-brand-accent flex items-center justify-center z-10 mb-6 md:mb-0">
-                    <BarChart4 className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="md:w-1/2 md:pl-12 text-left">
-                    <h3 className="text-xl font-semibold mb-2">Lead Qualification & Screening</h3>
-                    <p className="text-white/70">
-                      We verify project details, budget, and timeframe to ensure leads are ready for quotes.
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Step 3 */}
-                <div className="flex flex-col md:flex-row items-center">
-                  <div className="md:w-1/2 md:pr-12 text-right mb-6 md:mb-0">
-                    <h3 className="text-xl font-semibold mb-2">Seamless Delivery</h3>
-                    <p className="text-white/70">
-                      Qualified leads are delivered directly to you through your preferred method - email, CRM, or phone.
-                    </p>
-                  </div>
-                  <div className="h-12 w-12 rounded-full bg-brand-accent flex items-center justify-center z-10 mb-6 md:mb-0">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="md:w-1/2 md:pl-12"></div>
-                </div>
-                
-                {/* Step 4 */}
-                <div className="flex flex-col md:flex-row items-center">
-                  <div className="md:w-1/2 md:pr-12"></div>
-                  <div className="h-12 w-12 rounded-full bg-brand-accent flex items-center justify-center z-10 mb-6 md:mb-0">
-                    <Clock className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="md:w-1/2 md:pl-12 text-left">
-                    <h3 className="text-xl font-semibold mb-2">Continuous Optimization</h3>
-                    <p className="text-white/70">
-                      We track results and continually refine our approach to improve lead quality and conversion rates.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Guarantee Section */}
         <section className="py-16 reveal-section">
           <div className="container">
@@ -231,9 +148,11 @@ const ServicesPage = () => {
                     <p className="text-white/70 mb-6">
                       We're so confident in our ability to deliver quality leads that we offer a simple guarantee: Get at least 5 quote-ready home improvement leads within 30 days or you don't pay.
                     </p>
-                    <Button className="bg-brand-accent hover:bg-brand-accent/90 text-white rounded-full px-8 py-6 text-base font-medium">
-                      Get Started Today
-                    </Button>
+                    <Link to="/booking">
+                      <Button className="bg-brand-accent hover:bg-brand-accent/90 text-white rounded-full px-8 py-6 text-base font-medium">
+                        Get Started Today
+                      </Button>
+                    </Link>
                   </div>
                 </div>
                 <div className="bg-gradient-to-br from-brand-purple/20 to-brand-accent/20 p-8 md:p-12 flex items-center justify-center">
