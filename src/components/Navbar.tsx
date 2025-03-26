@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import AnimatedLogo from "./AnimatedLogo";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -33,12 +34,15 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="hover-underline text-sm font-medium text-white/90 hover:text-white transition-colors duration-200">
-            Features
-          </a>
-          <a href="#pricing" className="hover-underline text-sm font-medium text-white/90 hover:text-white transition-colors duration-200">
-            Pricing
-          </a>
+          <Link to="/" className="hover-underline text-sm font-medium text-white/90 hover:text-white transition-colors duration-200">
+            Home
+          </Link>
+          <Link to="/services" className="hover-underline text-sm font-medium text-white/90 hover:text-white transition-colors duration-200">
+            Services
+          </Link>
+          <Link to="/team" className="hover-underline text-sm font-medium text-white/90 hover:text-white transition-colors duration-200">
+            Team
+          </Link>
           <a href="#contact" className="hover-underline text-sm font-medium text-white/90 hover:text-white transition-colors duration-200">
             Contact
           </a>
@@ -46,7 +50,7 @@ const Navbar = () => {
             className="bg-brand-accent hover:bg-brand-accent/90 text-white rounded-full px-6"
             variant="default"
           >
-            Get Started
+            Get Leads Now
           </Button>
         </nav>
 
@@ -67,20 +71,27 @@ const Navbar = () => {
         } md:hidden flex flex-col pt-24 px-6`}
       >
         <nav className="flex flex-col space-y-6">
-          <a
-            href="#features"
+          <Link
+            to="/"
             className="text-xl font-medium text-white/90 hover:text-white transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Features
-          </a>
-          <a
-            href="#pricing"
+            Home
+          </Link>
+          <Link
+            to="/services"
             className="text-xl font-medium text-white/90 hover:text-white transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Pricing
-          </a>
+            Services
+          </Link>
+          <Link
+            to="/team"
+            className="text-xl font-medium text-white/90 hover:text-white transition-colors duration-200"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Team
+          </Link>
           <a
             href="#contact"
             className="text-xl font-medium text-white/90 hover:text-white transition-colors duration-200"
@@ -92,7 +103,7 @@ const Navbar = () => {
             className="bg-brand-accent hover:bg-brand-accent/90 text-white rounded-full w-full"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Get Started
+            Get Leads Now
           </Button>
         </nav>
       </div>

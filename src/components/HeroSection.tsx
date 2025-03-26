@@ -28,16 +28,16 @@ const HeroSection = () => {
             style={{ transitionDelay: '200ms' }}
           >
             <span className="inline-block w-2 h-2 rounded-full bg-brand-accent mr-2"></span>
-            Revolutionizing Digital Workflow
+            Home Improvement Lead Generation
           </div>
 
           {/* Main Heading */}
           <h1 
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gradient text-balance
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-balance
               transform transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: '400ms' }}
           >
-            Transform Your Work With Premium Digital Tools
+            We Generate <span className="text-gradient-accent">Quote-Ready</span> Home Improvement <span className="text-gradient-accent">Leads For You.</span>
           </h1>
 
           {/* Description */}
@@ -46,7 +46,7 @@ const HeroSection = () => {
               transform transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: '600ms' }}
           >
-            Streamline your workflow, enhance productivity, and unleash creativity with our comprehensive suite of digital solutions tailored for modern professionals.
+            No heavy lifting required. We do the hard work, so you can focus on growing your home improvement business with qualified leads ready to convert.
           </p>
 
           {/* CTA Buttons */}
@@ -56,11 +56,11 @@ const HeroSection = () => {
             style={{ transitionDelay: '800ms' }}
           >
             <Button className="bg-brand-accent hover:bg-brand-accent/90 text-white rounded-full px-8 py-6 text-base font-medium group">
-              Get Started Free
+              Get More Leads
               <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="ghost" className="text-white hover:bg-white/5 rounded-full px-6 py-6 text-base font-medium group">
-              View Demo
+              Learn How It Works
               <ArrowRight className="ml-2 h-4 w-4 opacity-70 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
@@ -79,7 +79,14 @@ const HeroSection = () => {
                 <div className="h-5 w-64 ml-4 rounded-md bg-white/10"></div>
               </div>
               <div className="bg-dark-300 aspect-video w-full flex items-center justify-center">
-                <div className="text-white/30 text-lg">Dashboard Preview</div>
+                <div className="flex flex-col items-center">
+                  <div className="h-24 w-24 bg-brand-accent/20 rounded-full flex items-center justify-center mb-4">
+                    <div className="h-16 w-16 bg-brand-accent/30 rounded-full flex items-center justify-center">
+                      <div className="text-4xl font-bold text-brand-accent">5+</div>
+                    </div>
+                  </div>
+                  <div className="text-white text-xl font-semibold">Guaranteed Leads in 30 Days</div>
+                </div>
               </div>
             </div>
           </div>

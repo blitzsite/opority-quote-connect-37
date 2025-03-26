@@ -4,41 +4,41 @@ import {
   Zap, 
   Shield, 
   BarChart3, 
-  Layers, 
   Users, 
-  Calendar 
+  Target,
+  PhoneCall
 } from "lucide-react";
 
 const features = [
   {
-    icon: <Zap className="h-6 w-6 text-brand-accent" />,
-    title: "Lightning Fast",
-    description: "Experience exceptional speed with our optimized platform designed for maximum efficiency.",
+    icon: <Target className="h-6 w-6 text-brand-accent" />,
+    title: "Targeted Leads",
+    description: "We focus exclusively on homeowners actively seeking home improvement services in your area.",
   },
   {
     icon: <Shield className="h-6 w-6 text-brand-accent" />,
-    title: "Enterprise Security",
-    description: "Bank-level encryption and security measures to keep your data safe and protected.",
+    title: "Quality Guaranteed",
+    description: "We stand by our lead quality with our guarantee: 5+ quote-ready leads in 30 days or you don't pay.",
   },
   {
     icon: <BarChart3 className="h-6 w-6 text-brand-accent" />,
-    title: "Powerful Analytics",
-    description: "Gain valuable insights with comprehensive analytics and reporting tools.",
+    title: "ROI Focused",
+    description: "Our campaigns are designed to maximize your return on investment and grow your business.",
   },
   {
-    icon: <Layers className="h-6 w-6 text-brand-accent" />,
-    title: "Seamless Integration",
-    description: "Connect with your favorite tools and services through our extensive API and integrations.",
+    icon: <Zap className="h-6 w-6 text-brand-accent" />,
+    title: "Quick Results",
+    description: "Start receiving qualified leads within days, not months, after launching your campaign.",
   },
   {
     icon: <Users className="h-6 w-6 text-brand-accent" />,
-    title: "Team Collaboration",
-    description: "Enhance teamwork with real-time collaboration features and shared workspaces.",
+    title: "Pre-Qualified",
+    description: "We screen all leads to ensure they have the budget and timeline that match your services.",
   },
   {
-    icon: <Calendar className="h-6 w-6 text-brand-accent" />,
-    title: "Smart Scheduling",
-    description: "Plan and organize your workflow with intuitive scheduling and calendar tools.",
+    icon: <PhoneCall className="h-6 w-6 text-brand-accent" />,
+    title: "Ready To Quote",
+    description: "Leads are delivered ready for you to contact and provide estimates for their projects.",
   },
 ];
 
@@ -56,11 +56,11 @@ const FeatureSection = () => {
         <div className="text-center mb-16">
           <div className="inline-block glass-morphism px-4 py-1.5 rounded-full mb-4 text-white/80 text-sm">
             <span className="inline-block w-2 h-2 rounded-full bg-brand-accent mr-2"></span>
-            Premium Features
+            Key Benefits
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">Designed for Professionals</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">Why Our Leads Convert Better</h2>
           <p className="text-white/70 max-w-2xl mx-auto text-balance">
-            Our comprehensive suite of features is built to enhance your workflow and boost productivity to unprecedented levels.
+            Our comprehensive approach to lead generation ensures you get high-quality, ready-to-quote home improvement leads.
           </p>
         </div>
 
