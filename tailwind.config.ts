@@ -58,9 +58,9 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				dark: {
-					100: '#1A1F2C',
-					200: '#14171f',
-					300: '#0e1015',
+					100: '#0f0a19',
+					200: '#0a071d',
+					300: '#07051a',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -72,11 +72,11 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom brand colors
+				// Custom brand colors updated to match deep purple theme
 				brand: {
-					blue: '#33C3F0',
+					blue: '#6366f1',
 					purple: '#7E69AB',
-					accent: '#9b87f5',
+					accent: '#6d28d9',
 					lightPurple: '#D6BCFA',
 				}
 			},

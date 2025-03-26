@@ -30,7 +30,7 @@
 
 @layer base {
   * {
-    @apply border-border selection:bg-brand-accent/30 selection:text-white;
+    @apply border-border selection:bg-indigo-500/30 selection:text-white;
   }
   
   body {
@@ -66,7 +66,7 @@
   }
   
   .text-gradient-accent {
-    @apply bg-gradient-to-r from-brand-blue via-brand-purple to-brand-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600 bg-clip-text text-transparent;
   }
   
   .text-balance {
@@ -91,7 +91,7 @@
 }
 
 .hover-underline {
-  @apply relative after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-brand-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  @apply relative after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-indigo-500 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
 }
 
 .container {

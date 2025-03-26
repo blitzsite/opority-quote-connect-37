@@ -43,15 +43,12 @@ const Navbar = () => {
           <Link to="/team" className="hover-underline text-sm font-medium text-white/90 hover:text-white transition-colors duration-200">
             Team
           </Link>
-          <a href="#contact" className="hover-underline text-sm font-medium text-white/90 hover:text-white transition-colors duration-200">
-            Contact
-          </a>
-          <Button
-            className="bg-brand-accent hover:bg-brand-accent/90 text-white rounded-full px-6"
-            variant="default"
+          <Link
+            to="/booking"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full px-6 py-2 text-sm font-medium transition-colors duration-200"
           >
-            Get Leads Now
-          </Button>
+            Book a Consultation
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -92,19 +89,13 @@ const Navbar = () => {
           >
             Team
           </Link>
-          <a
-            href="#contact"
-            className="text-xl font-medium text-white/90 hover:text-white transition-colors duration-200"
+          <Link
+            to="/booking"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full py-3 text-center text-lg font-medium transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Contact
-          </a>
-          <Button
-            className="bg-brand-accent hover:bg-brand-accent/90 text-white rounded-full w-full"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Get Leads Now
-          </Button>
+            Book a Consultation
+          </Link>
         </nav>
       </div>
     </header>
