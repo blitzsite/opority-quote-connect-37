@@ -12,7 +12,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -20,7 +20,7 @@ const HeroSection = () => {
           alt="Background" 
           className="w-full h-full object-cover" 
         />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
 
       <div className="container relative z-10">

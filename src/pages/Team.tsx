@@ -7,40 +7,34 @@ import { Users, Award, Star, ThumbsUp } from "lucide-react";
 // Team member data
 const teamMembers = [
   {
-    name: "Alex Johnson",
+    name: "Arnold",
     role: "CEO & Founder",
-    bio: "15+ years in digital marketing and lead generation for home improvement businesses.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop",
+    image: "/team/arnold.png",
   },
   {
-    name: "Sarah Williams",
-    role: "Lead Generation Specialist",
-    bio: "Expert in creating high-converting campaigns for contractors and home services.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&h=200&auto=format&fit=crop",
+    name: "Ognjen",
+    role: "Facebook Manager",
+    image: "/team/ognjen.png",
   },
   {
-    name: "Michael Chen",
-    role: "Digital Marketing Director",
-    bio: "Specializes in PPC and social media campaigns for home improvement companies.",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&h=200&auto=format&fit=crop",
+    name: "Mehadi",
+    role: "Web designer & Marketer",
+    image: "/team/mehadi.png",
   },
   {
-    name: "Jessica Rodriguez",
-    role: "Client Success Manager",
-    bio: "Ensures our clients receive the highest quality leads and exceptional service.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&h=200&auto=format&fit=crop",
+    name: "David",
+    role: "Appointment Setter",
+    image: "/team/david.png",
   },
   {
-    name: "David Smith",
-    role: "Web Development Lead",
-    bio: "Creates high-converting websites for home improvement businesses.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&h=200&auto=format&fit=crop",
+    name: "Mike",
+    role: "Appointment Setter",
+    image: "/team/mike.png",
   },
   {
-    name: "Emma Wilson",
-    role: "Content Strategist",
-    bio: "Crafts engaging content that resonates with homeowners looking for improvements.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&h=200&auto=format&fit=crop",
+    name: "Farhan",
+    role: "Appointment Setter",
+    image: "/team/farhan.png",
   }
 ];
 
@@ -103,52 +97,7 @@ const TeamPage = () => {
           </div>
         </section>
 
-        {/* Core Values Section */}
-        <section className="py-16 relative reveal-section">
-          <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gradient">Our Core Values</h2>
-              <p className="text-white/70 max-w-2xl mx-auto">
-                The principles that guide our lead generation approach and define how we work with clients.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="glass-morphism p-6 rounded-2xl">
-                <div className="h-12 w-12 rounded-xl neo-morphism flex items-center justify-center mb-4">
-                  <ThumbsUp className="h-6 w-6 text-brand-accent" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Quality First</h3>
-                <p className="text-white/70">We focus on generating high-quality leads that are ready to convert, not just increasing numbers.</p>
-              </div>
-              
-              <div className="glass-morphism p-6 rounded-2xl">
-                <div className="h-12 w-12 rounded-xl neo-morphism flex items-center justify-center mb-4">
-                  <Award className="h-6 w-6 text-brand-accent" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Expertise</h3>
-                <p className="text-white/70">Our team has specialized knowledge in home improvement marketing and lead generation.</p>
-              </div>
-              
-              <div className="glass-morphism p-6 rounded-2xl">
-                <div className="h-12 w-12 rounded-xl neo-morphism flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-brand-accent" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Client Partnership</h3>
-                <p className="text-white/70">We view our relationships as partnerships, working closely with you for mutual success.</p>
-              </div>
-              
-              <div className="glass-morphism p-6 rounded-2xl">
-                <div className="h-12 w-12 rounded-xl neo-morphism flex items-center justify-center mb-4">
-                  <Star className="h-6 w-6 text-brand-accent" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Results-Driven</h3>
-                <p className="text-white/70">We measure our success by the results we deliver for your business.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        
         {/* Team Members Grid */}
         <section className="py-16 reveal-section">
           <div className="container">
